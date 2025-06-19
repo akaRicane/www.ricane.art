@@ -8,7 +8,7 @@ import { FAVICON } from '~/globals/constants'
 import '../css/app.css'
 
 createInertiaApp({
-  progress: { color: '#5468FF' },
+  progress: { color: '#fb8b24' },
 
   title: (title) => (title ? title : import.meta.env.VITE_APP_NAME),
 

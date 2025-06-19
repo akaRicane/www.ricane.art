@@ -1,0 +1,9 @@
+:root {
+  --color-main-dark: #3c4337;
+  --color-main-light: #6e7b65;
+  --color-accent: #fb8b24;
+  --color-black: #141414;
+  --color-white: #d0ccd0;
+
+  --color-theme-font: var(--color-white);
+}

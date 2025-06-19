@@ -1,0 +1,10 @@
+.page-section-common {
+  width: 100%;
+
+  border: solid 2px var(--color-accent);
+  background-color: var(--color-main-dark);
+}
+
+.page-section-full-screen {
+  min-height: 100vh;
+}

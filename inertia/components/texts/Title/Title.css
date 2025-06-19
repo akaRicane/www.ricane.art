@@ -1,0 +1,26 @@
+.title-common {
+  display: block;
+}
+
+.title-h1 {
+  color: red;
+  font-size: 60px;
+}
+
+.title-h2 {
+  color: yellow;
+  font-size: 40px;
+}
+
+.title-h3 {
+  color: green;
+  font-size: 20px;
+}
+
+.title-force-lowercase {
+  text-transform: lowercase !important;
+}
+
+.title-force-uppercase {
+  text-transform: uppercase !important;
+}

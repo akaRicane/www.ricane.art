@@ -1,0 +1,16 @@
+.rollover-title {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+
+  color: var(--color-theme-font);
+  border: solid 1px green;
+}
+
+.rollover-words {
+  vertical-align: sub;
+  margin-left: 1rem;
+
+  font-size: 60px;
+  padding: 0%;
+}
