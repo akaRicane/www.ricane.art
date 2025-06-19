@@ -10,3 +10,9 @@ export type Translations = {
 }
 
 export type UrlString = string
+
+export type LongLatCoordinates = string
+export type CityLocation = {
+  city: string
+  country: string
+}

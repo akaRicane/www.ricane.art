@@ -1,7 +1,7 @@
 import './LoremIpsum.css'
 
 type LoremIpsumProps = {
-  length: number
+  length?: number
 }
 
 const LoremIpsum: React.FC<LoremIpsumProps> = () => {

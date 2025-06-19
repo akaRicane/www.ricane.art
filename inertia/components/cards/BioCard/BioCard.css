@@ -1,0 +1,26 @@
+.bio-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 5em 5em;
+}
+
+.bio-card > *:nth-child(1) {
+  text-align: center;
+}
+
+.bio-card-content {
+  margin-bottom: 4rem;
+}
+
+.bio-card-content-line {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.bio-card-content-line-label {
+  text-align: center;
+}
+
+.bio-card-content-line-data {
+  text-align: left;
+}
