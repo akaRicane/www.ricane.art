@@ -4,7 +4,8 @@
   height: fit-content;
 
   color: var(--color-theme-font);
-  border: solid 1px green;
+  border: solid 1px var(--color-accent);
+  gap: 0rem;
 }
 
 .rollover-words {

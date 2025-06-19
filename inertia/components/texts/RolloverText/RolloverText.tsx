@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { randomInt } from '~/utils/maths'
 import './RolloverText.css'
@@ -13,10 +14,11 @@ type RolloverTextProps = {
 }
 
 const RolloverWords: React.FC<RolloverWordsProps> = (props) => {
-  const [words, setWords] = useState<string>(props.text[0])
-  const [styling, setStyling] = useState<string>('rollover-words')
-
   const fonts: string[] = ['fredericka-the-great-regular']
+
+  const [words, setWords] = useState<string>(props.text[0])
+  const [styling, setStyling] = useState<string>(clsx('rollover-words', fonts.at(0)))
+
   let index: number = 0
   let timeout: NodeJS.Timeout
 
@@ -27,9 +29,7 @@ const RolloverWords: React.FC<RolloverWordsProps> = (props) => {
         index = 0
       }
       setWords(props.text.at(index) || 'not found')
-
-      const newStyle: string = 'rollover-words ' + fonts.at(randomInt(0, fonts.length - 1))
-      setStyling(newStyle)
+      setStyling(clsx('rollover-words', fonts.at(randomInt(0, fonts.length - 1))))
     }, props.timing * 1000)
 
     return () => {
@@ -49,7 +49,7 @@ const RolloverText: React.FC<RolloverTextProps> = ({ chunks }) => {
   useEffect(() => {}, [])
 
   return (
-    <div className="rollover-title fredericka-the-great-regular">
+    <div className="rollover-title">
       {chunks.map((chunk, index) => (
         <RolloverWords
           key={index}
