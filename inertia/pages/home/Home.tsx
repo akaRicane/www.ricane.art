@@ -1,9 +1,9 @@
 import NavigationsController from '#controllers/navigations_controller'
 import { InferPageProps } from '@adonisjs/inertia/types'
 import BioCard, { BioCardContentFormat } from '~/components/cards/BioCard/BioCard'
+import ContactCard from '~/components/cards/ContactCard/ContactCard'
 import PageContainer from '~/components/layouts/PageContainer/PageContainer'
 import PageSection, { PageSectionVariants } from '~/components/layouts/PageSection/PageSection'
-import LoremIpsum from '~/components/texts/LoremIpsum/LoremIpsum'
 import RolloverText from '~/components/texts/RolloverText/RolloverText'
 import Title, { TitleLevels, TitleTransform } from '~/components/texts/Title/Title'
 
@@ -27,7 +27,7 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
         </Title>
       </PageSection>
 
-      <PageSection>
+      <PageSection background_color="--color-main-light">
         <Title title_transform={TitleTransform.UPPERCASE}>Multimodal artist & ENGineer</Title>
         <Title title_level={TitleLevels.H3} title_transform={TitleTransform.LOWERCASE}>
           across music, stage design and tech
@@ -137,10 +137,8 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
         />
       </PageSection>
 
-      <PageSection>
-        <LoremIpsum />
-        <LoremIpsum />
-        <LoremIpsum />
+      <PageSection variant={PageSectionVariants.FULL_SCREEN} background_color="--color-main-light">
+        <ContactCard />
       </PageSection>
     </PageContainer>
   )

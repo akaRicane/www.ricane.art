@@ -1,0 +1,34 @@
+.bento-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+}
+
+.bento-span-col-2 {
+  grid-column: span 2;
+}
+
+.bento-span-col-3 {
+  grid-column: span 3;
+}
+
+.bento-span-col-4 {
+  grid-column: span 4;
+}
+
+.bento-span-row-2 {
+  grid-row: span 2;
+}
+
+.bento-span-row-3 {
+  grid-row: span 3;
+}
+
+.bento-span-row-4 {
+  grid-row: span 4;
+}
