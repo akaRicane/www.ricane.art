@@ -3,14 +3,23 @@ import { InferPageProps } from '@adonisjs/inertia/types'
 import BioCard, { BioCardContentFormat } from '~/components/cards/BioCard/BioCard'
 import ContactCard from '~/components/cards/ContactCard/ContactCard'
 import PageContainer from '~/components/layouts/PageContainer/PageContainer'
-import PageSection, { PageSectionVariants } from '~/components/layouts/PageSection/PageSection'
+import PageSection, { PageSectionVariants, SectionNames } from '~/components/layouts/PageSection/PageSection'
 import RolloverText from '~/components/texts/RolloverText/RolloverText'
 import Title, { TitleLevels, TitleTransform } from '~/components/texts/Title/Title'
 
+
 const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) => {
+
+  const scrollToSection = (sectionId: SectionNames) => {
+    const el = document.getElementById(sectionId)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   return (
-    <PageContainer title="ricane.art/homepage" {...props}>
-      <PageSection variant={PageSectionVariants.FULL_SCREEN}>
+    <PageContainer title="ricane.art/homepage" smoothScroll={true} {...props}>
+      <PageSection id={SectionNames.INTRO} variant={PageSectionVariants.FULL_SCREEN}>
         <Title title_transform={TitleTransform.NONE}>
           <RolloverText
             chunks={[
@@ -27,14 +36,18 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
         </Title>
       </PageSection>
 
-      <PageSection background_color="--color-main-light">
-        <Title title_transform={TitleTransform.UPPERCASE}>Multimodal artist & ENGineer</Title>
+      <PageSection
+        id={SectionNames.MULTIMODAL_ARTIST}
+        variant={PageSectionVariants.FULL_SCREEN}
+        background_color="--color-main-light"
+      >
+        <Title title_transform={TitleTransform.UPPERCASE}>Multimodal artist & Engineer</Title>
         <Title title_level={TitleLevels.H3} title_transform={TitleTransform.LOWERCASE}>
           across music, stage design and tech
         </Title>
       </PageSection>
 
-      <PageSection>
+      <PageSection id={SectionNames.ABOUT}>
         <BioCard
           title="About me"
           childrenCards={[
@@ -60,7 +73,9 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
             },
           ]}
         />
+      </PageSection>
 
+      <PageSection id={SectionNames.JOBS}>
         <BioCard
           title="I've worked there"
           childrenCards={[
@@ -80,14 +95,16 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
             },
             {
               content_format: BioCardContentFormat.JOB,
-              what: 'Spell Audio',
+              what: 'DXOMARK Image Labs',
               topics: ['audio engineer', 'project lead', 'manager'],
               where: { city: 'Boulogne-Billancourt', country: 'France' },
               when: [2020, 2024],
             },
           ]}
         />
+      </PageSection>
 
+      <PageSection id={SectionNames.GEEKING_THIS}>
         <BioCard
           title="Geeking this"
           childrenCards={[
@@ -137,8 +154,12 @@ const Home: React.FC<InferPageProps<NavigationsController, 'home'>> = (props) =>
         />
       </PageSection>
 
-      <PageSection variant={PageSectionVariants.FULL_SCREEN} background_color="--color-main-light">
-        <ContactCard />
+      <PageSection
+        id={SectionNames.CONTACT}
+        variant={PageSectionVariants.FULL_SCREEN}
+        background_color="--color-main-light"
+      >
+        <ContactCard scrollToSection={scrollToSection}/>
       </PageSection>
     </PageContainer>
   )

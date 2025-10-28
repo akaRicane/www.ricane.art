@@ -2,6 +2,9 @@
   width: 100%;
 
   border: solid 2px var(--color-accent);
+
+  scroll-snap-align: start; /* Each section will snap to the top */
+  scroll-snap-stop: always; /* Optional: ensures each stops exactly */
 }
 
 .page-section-full-screen {

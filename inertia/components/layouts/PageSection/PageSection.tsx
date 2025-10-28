@@ -6,13 +6,23 @@ enum PageSectionVariants {
   FIT = 'fit',
 }
 
+enum SectionNames {
+  INTRO = 'intro',
+  MULTIMODAL_ARTIST = 'multimodal_artist',
+  ABOUT = 'about',
+  JOBS = 'jobs',
+  GEEKING_THIS = 'geeking_this',
+  CONTACT = "contact"
+}
+
 type PageSectionProps = {
+  id: SectionNames
   children: React.ReactNode
   variant?: PageSectionVariants
   background_color?: string
 }
 
-const PageSection: React.FC<PageSectionProps> = ({ children, variant, background_color }) => {
+const PageSection: React.FC<PageSectionProps> = ({ id, children, variant, background_color }) => {
   const backgroundColor: string = 'var(' + (background_color || '--color-main-dark') + ')'
 
   const cln = clsx('page-section-common')
@@ -21,14 +31,14 @@ const PageSection: React.FC<PageSectionProps> = ({ children, variant, background
   switch (variant) {
     case PageSectionVariants.FULL_SCREEN:
       return (
-        <section style={stl} className={clsx(cln, 'page-section-full-screen')}>
+        <section id={id} style={stl} className={clsx(cln, 'page-section-full-screen')}>
           {children}
         </section>
       )
 
     default:
       return (
-        <section style={stl} className={clsx(cln)}>
+        <section id={id} style={stl} className={clsx(cln)}>
           {children}
         </section>
       )
@@ -36,4 +46,4 @@ const PageSection: React.FC<PageSectionProps> = ({ children, variant, background
 }
 
 export default PageSection
-export { PageSectionVariants }
+export { PageSectionVariants, SectionNames }

@@ -1,8 +1,8 @@
 .contact-card {
-  --footer-height: 4vh;
+  --contact-footer-height: 4vh;
 
   display: grid;
-  grid-template-rows: calc(100vh - var(--footer-height)) var(--footer-height);
+  grid-template-rows: calc(99vh - var(--contact-footer-height)) var(--contact-footer-height);
 
   inset: auto;
 }
@@ -20,7 +20,7 @@
 
 @media only screen and (min-width: 1080px) {
   .contact-card {
-    --footer-height: 10vh;
+    --contact-footer-height: 10vh;
   }
 
   .contact-card-content {
